@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>elmental front end assessment</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="header"><img src="images/Path 1.jpg" id="logo"><img src="images/Menu_Off_1.jpg"></div>
+    <div id="slider">
+        <div>
+           <div class="slide"><div id="slidePhraseContainer"><h2 class="slidePhrase"  id="0">LOOK BEYOND THE ORDINARY</h2></div><img src="images/Mask Group 1.jpg" class="slideImg" id="0" alt=""><button id="slideBtn"><img src="images/Mask Group 9.png"></button><div id="slideIndicators"><img src="images/Group 20.png" id="SI0"><img src="images/Group 20.png" id="SI1"><img src="images/Group 20.png" id="SI2"><img src="images/Group 20.png" id="SI3"></div></div>  
+         </div>
+     </div>
+     <div id="info"><p>Visio is an investment management firm initially founded by Patrice Moyal in 2003. The nimble, highly focused and dynamic team manage assets across listed strategies for a diversified client base that includes some of the world’s largest and most sophisticated investors.</p><img src="images/Component 3 – 1.png"></div>
+     <div id="statements"><div id="statement"><img src="images/Path 28.png"><h1>THE VISIO DIFFERENCE</h1></div><div id="statement"><img src="images/Path 28.png"><h1>MEET THE VISIO TEAM</h1></div><div id="statement"><img src="images/Path 28.png"><h1>OUR FUNDS AND INVESTMENTS</h1></div></div>
+     <di id="features"><div id="feature"><h4>HEDGE FUNDS</h4><img src="images/Path 28.png"></div><div id="feature"><h4>UNIT TRUSTS</h4><img src="images/Path 28.png"></div><div id="feature"><h4>SEGREGATED MANDATES</h4><img src="images/Path 28.png"></div><div id="feature"><h4>AFRICA FUNDS</h4><img src="images/Path 28.png"></div><div id="feature"><h4>FUND PERFORMANCE</h4><img src="images/Path 28.png"></div><div id="feature"><h4>RISK MANAGEMENT</h4><img src="images/Path 28.png"></div></di>
+     <script>
+        $(document).ready(function(){
+            var count =1;
+            var picturesArr = ["images/Mask Group 1.jpg","images/Mask Group -1.jpg","images/Mask Group -2.jpg","images/Mask Group -3.jpg"];
+            var phrasesArr = ["LOOK BEYOND THE ORDINARY","WE ASPIRE TO INSPIRE","WE CAN AND WE WILL","WE LEAVE NO STONE UNTURNED"];
+            $(`#SI0`).css("opacity", "0.5");
+            
+            $("#slideBtn").click(function(){
+                $("#slideIndicators").children().css("opacity", "1");
+                console.log(picturesArr[count]);
+                $(".slideImg").fadeOut();
+                if (count>3) {
+                    count=0
+                    $(".slideImg").attr("src", picturesArr[count]);
+                    $(".slideImg").attr("id", count);
+                    $(".slidePhrase").text(phrasesArr[count]);
+                    $(".slidePhrase").attr("id", count);
+                    $(`#SI${count}`).css("opacity", "0.5");
+                }else{
+                    $(".slideImg").attr("src", picturesArr[count]);
+                    $(".slideImg").attr("id", count);
+                    $(".slidePhrase").text(phrasesArr[count]);
+                    $(".slidePhrase").attr("id", count);
+                    $(`#SI${count}`).css("opacity", "0.5");
+                    count++
+                }
+                $(".slideImg").fadeIn();
+            });
+        });
+    </script>
+</body>
+</html>
